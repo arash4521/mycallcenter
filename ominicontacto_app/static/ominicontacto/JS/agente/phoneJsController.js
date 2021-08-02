@@ -58,6 +58,7 @@ class PhoneJSController {
         this.campaign_name = '';
         /*-----------------*/
 
+        this.disableOnHold();
 
         this.subscribeToViewEvents();
         this.subscribeToFSMEvents();
@@ -348,10 +349,10 @@ class PhoneJSController {
                 self.view.toogleVisibilityRecordButtons(self.phone.session_data);
                 self.click_2_call_dispatcher.disable();
 
-                if (self.phone.session_data.remote_call && 
+                if (self.phone.session_data.remote_call &&
                     self.phone.session_data.remote_call.force_disposition) {
                     self.click_2_call_dispatcher.last_call_configures_force_disposition = true;
-                    self.click_2_call_dispatcher.last_call_forces_disposition = 
+                    self.click_2_call_dispatcher.last_call_forces_disposition =
                         self.phone.session_data.remote_call.force_disposition == 'True';
                 }
                 else {
@@ -938,6 +939,19 @@ class PhoneJSController {
         }
     }
 
+    disableOnHold() {
+        if (this.agent_config.on_hold){
+            var filter_on_call = PHONE_STATUS_CONFIGS['OnCall'].enabled_buttons.filter(function(value, index, arr){
+                return value != 'onHold';
+            });
+            var filter_on_hold = PHONE_STATUS_CONFIGS['OnHold'].enabled_buttons.filter(function(value, index, arr){
+                return value != 'onHold';
+            });
+            PHONE_STATUS_CONFIGS['OnCall'].enabled_buttons = filter_on_call;
+            PHONE_STATUS_CONFIGS['OnHold'].enabled_buttons = filter_on_hold;
+        }
+    }
+    
 }
 
 class PauseManager {
@@ -977,7 +991,7 @@ class KeepAliveSender {
         if (this.interval_handler != undefined) {
             clearInterval(this.interval_handler);
             this.interval_handler = undefined;
-        }   
+        }
     }
     sendKeepAlive() {
         this.oml_api.sendKeepAlive();
@@ -1023,6 +1037,7 @@ class AgentConfig {
         this.auto_attend_DIALER = $('#auto_attend_DIALER').val() == 'True';
         this.auto_attend_IN = $('#auto_attend_IN').val() == 'True';
         this.call_off_camp = $('#call_off_camp').val() == 'False';
+        this.on_hold = $('#on_hold').val() == 'False';
     }
 }
 
