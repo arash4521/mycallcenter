@@ -9,7 +9,7 @@
 [submodule "modules/kamailio"]
 	path = modules/kamailio
 	url = https://gitlab.com/omnileads/omlkamailio.git
-	branch = 210714.01
+	branch = kam-201-issue-sobreescritura-de-certificados-personalizados
 [submodule "modules/rtpengine"]
 	path = modules/rtpengine
 	url = https://gitlab.com/omnileads/omlrtpengine.git
