@@ -5,7 +5,7 @@
 [submodule "modules/nginx"]
 	path = modules/nginx
 	url = https://gitlab.com/omnileads/omlnginx.git
-	branch = 210624.01
+	branch = nginx-201-issue-sobreescritura-de-certificados-personalizados
 [submodule "modules/kamailio"]
 	path = modules/kamailio
 	url = https://gitlab.com/omnileads/omlkamailio.git
