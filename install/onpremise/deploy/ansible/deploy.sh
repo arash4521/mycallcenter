@@ -173,6 +173,7 @@ CertsValidation() {
       cp -f $certs_location/cert.pem $REPO_LOCATION/modules/kamailio/deploy/certs/cert.pem
       cp -f $certs_location/key.pem $REPO_LOCATION/modules/nginx/deploy/certs/key.pem
       cp -f $certs_location/cert.pem $REPO_LOCATION/modules/nginx/deploy/certs/cert.pem
+      read $Test;
     else
       printf "$RED*** [OMniLeads] A pair of trusted cert/key pem files weren't found on {{ repo_location }}/deploy/certs. Maybe:
         1. You didn't include the string "key" in you .pem file related to private key.
