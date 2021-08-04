@@ -175,8 +175,9 @@ CertsValidation() {
       cp -f $certs_location/cert.pem $REPO_LOCATION/modules/nginx/deploy/certs/cert.pem
     else
       printf "$RED*** [OMniLeads] A pair of trusted cert/key pem files weren't found on $REPO_LOCATION/install/onpremise/deploy/ansible/certs. Maybe:
-        1. You didn't include the string "key" in you .pem file related to private key.
-        2. You put more than two .pem files in the certs folder. $NC\n"
+1. You didn't include the string "key" in your .pem file related to private key.
+2. You put more or less than two .pem files in the certs folder.
+Try removing .pem files from certs location to continue with default certs, or try putting both specific files (key.pem and cert.pem) to continue with your certs.$NC\n"
       exit 1
     fi
   fi
