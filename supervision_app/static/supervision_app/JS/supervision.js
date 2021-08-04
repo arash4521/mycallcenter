@@ -58,7 +58,6 @@ function processData(rawData) {
             .replaceAll('"[', '[')
             .replaceAll(']"', ']'));
         const rowData = normalizaRow(agent);
-        console.log(rowData);
         const previousData = arrData[rowData.id];
         if (rowData.id != null && ((previousData != null && previousData.tiempo < arrData.tiempo) || !previousData)) {
             arrData[rowData.id] = rowData;
