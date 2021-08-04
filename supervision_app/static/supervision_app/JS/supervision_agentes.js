@@ -37,7 +37,6 @@ $(function() {
 });
 
 function getSpiedAgentName(agent_id) {
-    console.log(agent_id)
     spied_agent_name = $('#tableAgentes')
         .DataTable()
         .row('#' + agent_id)
