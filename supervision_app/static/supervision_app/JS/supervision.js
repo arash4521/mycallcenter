@@ -72,7 +72,7 @@ function updateTable(newData) {
     for (const agent in newData) {
         updateRow(newData[agent]);
     }
-    table_agentes.draw();
+    table_agentes.draw(false);
 }
 
 function updateRow(data) {
@@ -87,7 +87,7 @@ function updateRow(data) {
         data.status = prefixStatus + prefixSeparator + data.status;
         row.data(data);
     } else if (!checkStatus2Show(data.status)) {
-        row.remove();
+        row.remove(false);
     }
 
 }
