@@ -122,6 +122,7 @@ function createDataTable() {
             }, 2000);
         },
         data: table_data,
+        stateSave: true,
         rowId: 'id',
         columns: [
             { 'data': 'nombre' },
