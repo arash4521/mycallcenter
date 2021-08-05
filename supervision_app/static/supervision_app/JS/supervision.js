@@ -81,11 +81,13 @@ function updateRow(data) {
     let dataRow = row.data();
     if (dataRow == null && checkStatus2Show(data.status)) {
         table_agentes.row.add(data);
-    } else if (dataRow != null) {
+    } else if (dataRow != null && checkStatus2Show(data.status)) {
         const prefixStatus = (data.status.search('UNAVAILABLE') != -1 && dataRow.status.search('UNAVAILABLE') == -1) ? dataRow.status : '';
         const prefixSeparator = (prefixStatus != '') ? '-' : '';
         data.status = prefixStatus + prefixSeparator + data.status;
         row.data(data);
+    } else if (!checkStatus2Show(data.status)) {
+        row.remove();
     }
 
 }
