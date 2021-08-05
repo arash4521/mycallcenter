@@ -248,9 +248,9 @@ class ReporteDeLLamadasDialerDeSupervision(ReporteDeLlamadasDeSupervision):
         self._contabilizar_llamadas_en_curso()
 
     def _obtener_campanas(self):
-        return Campana.objects
-            .obtener_actuales()
-            .filter(type=Campana.TYPE_DIALER)
+        return Campana.objects \
+            .obtener_actuales() \
+            .filter(type=Campana.TYPE_DIALER) \
             .filter(estado__in=[Campana.ESTADO_ACTIVA, Campana.ESTADO_INACTIVA])
 
     def _obtener_logs_de_llamadas(self):
