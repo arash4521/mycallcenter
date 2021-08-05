@@ -119,6 +119,7 @@ function createDataTable() {
     table_dialers = $('#tableDialers').DataTable({
         data: table_data,
         rowId: 'nombre',
+        stateSave: true,
         columns: [
             { 'data': 'nombre' },
             { 'data': 'agentes_online' },
